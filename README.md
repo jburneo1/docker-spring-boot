@@ -14,7 +14,7 @@ $ docker pull mysql:5.7
 $ docker run --name mysql-standalone -e MYSQL_ROOT_PASSWORD=sa -e MYSQL_DATABASE=cafeto -e MYSQL_USER=sa -e MYSQL_PASSWORD=sa -d mysql:5.7
 
 // verificamos los registros de inicio de mysql
-docker container logs mysql-standalone
+$ docker container logs mysql-standalone
 
 // para conectarnos con el servidor mysql 
 $ docker exec -it mysql-standalone bash -l
@@ -26,9 +26,9 @@ $ mysql -usa -psa
 $ show databases;
 
 // ejecutamos nuestra aplicacion spring-boot
-docker run -d -p 8089:8089 --name demo --link mysql-standalone:mysql demo
+$ docker run -d -p 8089:8089 --name demo --link mysql-standalone:mysql demo
 
 // verificamos el log
-docker container logs demo
+$ docker container logs demo
 
 // probamos nuestra app
